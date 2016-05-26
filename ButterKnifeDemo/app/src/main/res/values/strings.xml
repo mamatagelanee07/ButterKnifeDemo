@@ -5,6 +5,9 @@
     <string name="btn_title_view_binding">View Binding</string>
     <string name="btn_title_resource_binding">Resource Binding</string>
 
+    <!--text titles-->
+    <string name="txt_title_drawable_binding">Drawable Resource Binding</string>
+
     <!--checkbox details-->
-    <string name="check_title_me">Tap on \'Resource Binding\' to check/uncheck me.</string>
+    <string name="check_title_me">Tap on \'Resource Binding\' to check/un-check me.</string>
 </resources>

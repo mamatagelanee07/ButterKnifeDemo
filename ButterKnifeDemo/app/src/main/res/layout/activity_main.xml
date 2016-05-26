@@ -31,6 +31,29 @@
     <CheckBox
         android:id="@+id/check_me"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:id="@+id/txt_drawable_binding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        tools:text="New Text" />
+
+    <TextView
+        android:id="@+id/txt_note_drawable_binding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:text="* tap on text here and see lock icon"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
 
 </LinearLayout>
