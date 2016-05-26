@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ButterKnifeDemo</string>
+
+    <!--button titles-->
+    <string name="btn_title_view_binding">View Binding</string>
+    <string name="btn_title_resource_binding">Resource Binding</string>
+
+    <!--checkbox details-->
+    <string name="check_title_me">Tap on \'Resource Binding\' to check/uncheck me.</string>
 </resources>
