@@ -3,6 +3,7 @@ package com.andyland.butterknifedemo.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.andyland.butterknifedemo.R;
 
 import butterknife.BindBool;
 import butterknife.BindColor;
+import butterknife.BindDimen;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
     boolean boolTrue;
     @BindBool(R.bool.boolFalse)
     boolean boolFalse;
+
+    //    If defined as int then it will return pixel value.
+    //    If defined as float it will return value exact as defined in resource folder
+    @BindDimen(R.dimen.check_text_size_small)
+    int textSmall;
+    @BindDimen(R.dimen.check_text_size_large)
+    int textLarge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
             checkMe.setChecked(boolFalse);
         } else {
             checkMe.setChecked(boolTrue);
+        }
+
+//        Here is an example of how to bind dimen resources
+        if (checkMe.getTextSize() == textSmall) {// getTextSize() gives value in Pixel format
+            checkMe.setTextSize(TypedValue.COMPLEX_UNIT_PX, textLarge);
+            Log.i(TAG, "Large text size : " + textLarge);
+        } else {
+            checkMe.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSmall);
+            Log.i(TAG, "Small text size :" + textSmall);
         }
     }
 }
