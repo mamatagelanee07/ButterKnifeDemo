@@ -1,10 +1,12 @@
-package com.andyland.butterknifedemo;
+package com.andyland.butterknifedemo.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.andyland.butterknifedemo.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     /**
-     * Can not declare view as private if we want to use ButterKnife.
+     * You can not declare view as private if you want to use ButterKnife.
      * The reason that Butter Knife requires views not be private is that is actually generates code
      * which sets the fields. The code that it generates lives in the same package as your class which
      * is why the field must be package-private, protected, or public.
