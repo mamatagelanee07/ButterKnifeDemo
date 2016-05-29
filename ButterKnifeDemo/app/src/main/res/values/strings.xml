@@ -4,6 +4,7 @@
     <!--button titles-->
     <string name="btn_title_view_binding">View Binding</string>
     <string name="btn_title_resource_binding">Resource Binding</string>
+    <string name="btn_title_non_activity_binding">Non Activity Binding</string>
 
     <!--text titles-->
     <string name="txt_title_drawable_binding">Drawable Resource Binding</string>
