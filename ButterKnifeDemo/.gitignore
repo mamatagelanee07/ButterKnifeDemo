@@ -43,3 +43,8 @@ captures/
 # Test package
 app/src/androidTest/
 app/src/test/
+
+# gradle files
+gradlew
+.idea/
+gradle/
