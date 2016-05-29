@@ -1,5 +1,6 @@
 package com.andyland.butterknifedemo.view;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,8 +22,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by Andy on 29-May-16.
+ * Attempt to show how to use ButterKnife
+ */
+
 public class MainActivity extends AppCompatActivity {
 
+    // TAG used for logging
     private static final String TAG = MainActivity.class.getSimpleName();
 
 
@@ -38,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnViewBinding;
     @BindView(R.id.btn_resource_binding)
     Button btnResourceBinding;
+    @BindView(R.id.btn_non_activity_binding)
+    Button btnNonActivityBinding;
     @BindView(R.id.txt_drawable_binding)
     TextView txtDrawableBinding;
     @BindView(R.id.check_me)
@@ -48,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     String titleViewBinding;
     @BindString(R.string.btn_title_resource_binding)
     String titleResourceBinding;
+    @BindString(R.string.btn_title_non_activity_binding)
+    String titleNonActivityBinding;
     @BindString(R.string.txt_title_drawable_binding)
     String titleDrawableBinding;
     @BindString(R.string.check_title_me)
@@ -97,12 +108,14 @@ public class MainActivity extends AppCompatActivity {
 //        So we can direct set this color to background on button here.
         btnViewBinding.setBackgroundColor(colorBackground);
         btnResourceBinding.setBackgroundColor(colorBackground);
+        btnNonActivityBinding.setBackgroundColor(colorBackground);
         txtDrawableBinding.setBackgroundColor(colorBackground);
 
 //        We have bound string resource to our string reference here.
 //        So we can easily use direct this string to set text in button label
         btnViewBinding.setText(titleViewBinding);
         btnResourceBinding.setText(titleResourceBinding);
+        btnNonActivityBinding.setText(titleNonActivityBinding);
         txtDrawableBinding.setText(titleDrawableBinding);
         checkMe.setText(titleCheckMe);
 
@@ -127,6 +140,18 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "Resource Binding button clicked..!!", Toast.LENGTH_SHORT).show();
         bindBooleanResources();
         bindDimenResources();
+    }
+
+    /**
+     * Attempts to call below method when 'Non Activity Binding Button' get clicked.
+     */
+    @OnClick(R.id.btn_non_activity_binding)
+    public void onNonActivityBindingClicked() {
+        Log.i(TAG, "Non Activity Binding Button clicked..!!");
+        Toast.makeText(MainActivity.this, "Non Activity Binding Button clicked..!!", Toast.LENGTH_SHORT).show();
+
+        // Open new activity NonActivityBinding
+        openActivity();
     }
 
     /**
@@ -164,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * An Example of how to bind 'dimen' resources
+     * An Example of how to bind 'drawable' resources
      */
     private void bindDrawableResources() {
         if (txtDrawableBinding.isSelected()) {
@@ -174,5 +199,13 @@ public class MainActivity extends AppCompatActivity {
             txtDrawableBinding.setCompoundDrawablesWithIntrinsicBounds(null, null, lockClose, null);
             txtDrawableBinding.setSelected(boolTrue);
         }
+    }
+
+    /**
+     * Attempts to open new activity.
+     */
+    private void openActivity() {
+        Intent intent = new Intent(MainActivity.this, NonBindingActivity.class);
+        startActivity(intent);
     }
 }

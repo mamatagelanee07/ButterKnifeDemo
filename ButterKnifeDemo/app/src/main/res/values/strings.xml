@@ -4,10 +4,17 @@
     <!--button titles-->
     <string name="btn_title_view_binding">View Binding</string>
     <string name="btn_title_resource_binding">Resource Binding</string>
+    <string name="btn_title_non_activity_binding">Non Activity Binding</string>
+    <string name="btn_title_fragment_binding">Fragment Binding</string>
+    <string name="btn_title_sample">Click ME</string>
+    <string name="btn_title_list_binding">List Binding</string>
 
     <!--text titles-->
     <string name="txt_title_drawable_binding">Drawable Resource Binding</string>
 
     <!--checkbox details-->
     <string name="check_title_me">Tap on \'Resource Binding\' to check/un-check me.</string>
+
+    <!--user messages-->
+    <string name="msg_fragment_load">Your Fragment will be loaded here.</string>
 </resources>
