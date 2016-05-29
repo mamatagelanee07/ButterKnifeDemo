@@ -1,6 +1,5 @@
 package com.andyland.butterknifedemo.view;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Attempts to call below method when 'Non Activity Binding Button' get clicked.
      */
-    @OnClick(R.id.btn_resource_binding)
+    @OnClick(R.id.btn_non_activity_binding)
     public void onNonActivityBindingClicked() {
         Log.i(TAG, "Non Activity Binding Button clicked..!!");
         Toast.makeText(MainActivity.this, "Non Activity Binding Button clicked..!!", Toast.LENGTH_SHORT).show();
