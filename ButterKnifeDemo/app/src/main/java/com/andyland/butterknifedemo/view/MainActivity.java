@@ -22,8 +22,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by Andy on 29-May-16.
+ * Attempt to show how to use ButterKnife
+ */
+
 public class MainActivity extends AppCompatActivity {
 
+    // TAG used for logging
     private static final String TAG = MainActivity.class.getSimpleName();
 
 

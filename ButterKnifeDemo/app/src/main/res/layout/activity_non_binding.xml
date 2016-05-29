@@ -22,12 +22,12 @@
         android:textColor="@android:color/white"/>
 
     <Button
-        android:id="@+id/btn_dialog_binding"
+        android:id="@+id/btn_list_binding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@color/colorButtonBG"
-        android:text="@string/btn_title_dialog_binding"
+        android:text="@string/btn_title_list_binding"
         android:textColor="@android:color/white"/>
 
     <FrameLayout
