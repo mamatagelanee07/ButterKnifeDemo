@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by Andy on 29-May-16.
@@ -26,6 +27,7 @@ public class ListFragment extends Fragment {
 
     @BindView(R.id.list)
     RecyclerView recyclerView;
+    private Unbinder unbinder;
 
     /**
      * To get single instance of fragment
@@ -53,7 +55,7 @@ public class ListFragment extends Fragment {
      * @param view : A reference of view
      */
     private void initUI(View view) {
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         // set an Adapter to RecyclerView
         ArrayList<String> titles = getTitles();
@@ -75,5 +77,17 @@ public class ListFragment extends Fragment {
             titles.add("Item : " + i);
         }
         return titles;
+    }
+
+    /**
+     * Fragments have a different view lifecycle than activities.
+     * When binding a fragment in onCreateView, set the views to null in onDestroyView.
+     * Butter Knife returns an Unbinder instance when you call bind to do this for you.
+     * Call its unbind method in the appropriate lifecycle callback.
+     */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }
