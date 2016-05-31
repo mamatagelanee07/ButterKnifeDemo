@@ -5,6 +5,7 @@
     <string name="btn_title_view_binding">View Binding</string>
     <string name="btn_title_resource_binding">Resource Binding</string>
     <string name="btn_title_non_activity_binding">Non Activity Binding</string>
+    <string name="btn_title_action_binding">Action Binding</string>
     <string name="btn_title_fragment_binding">Fragment Binding</string>
     <string name="btn_title_sample">Click ME</string>
     <string name="btn_title_list_binding">List Binding</string>

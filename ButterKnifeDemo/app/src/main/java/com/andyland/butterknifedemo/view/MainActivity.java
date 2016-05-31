@@ -3,9 +3,11 @@ package com.andyland.butterknifedemo.view;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -47,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnResourceBinding;
     @BindView(R.id.btn_non_activity_binding)
     Button btnNonActivityBinding;
+    @BindView(R.id.btn_action_binding)
+    Button btnActionBinding;
     @BindView(R.id.txt_drawable_binding)
     TextView txtDrawableBinding;
     @BindView(R.id.check_me)
     CheckBox checkMe;
+    @BindView(R.id.bar)
+    View barView;
 
     //Here we are setting string resources as a label text to buttons.
     @BindString(R.string.btn_title_view_binding)
@@ -59,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     String titleResourceBinding;
     @BindString(R.string.btn_title_non_activity_binding)
     String titleNonActivityBinding;
+    @BindString(R.string.btn_title_action_binding)
+    String titleActionBinding;
     @BindString(R.string.txt_title_drawable_binding)
     String titleDrawableBinding;
     @BindString(R.string.check_title_me)
@@ -109,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         btnViewBinding.setBackgroundColor(colorBackground);
         btnResourceBinding.setBackgroundColor(colorBackground);
         btnNonActivityBinding.setBackgroundColor(colorBackground);
+        btnActionBinding.setBackgroundColor(colorBackground);
         txtDrawableBinding.setBackgroundColor(colorBackground);
 
 //        We have bound string resource to our string reference here.
@@ -116,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         btnViewBinding.setText(titleViewBinding);
         btnResourceBinding.setText(titleResourceBinding);
         btnNonActivityBinding.setText(titleNonActivityBinding);
+        btnActionBinding.setText(titleActionBinding);
         txtDrawableBinding.setText(titleDrawableBinding);
         checkMe.setText(titleCheckMe);
 
@@ -152,6 +162,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Open new activity NonActivityBinding
         openActivity();
+    }
+
+
+    /**
+     * Attempts to call below method when 'Action Binding Button' get clicked.
+     */
+    @OnClick(R.id.btn_action_binding)
+    public void onActionBindingClicked() {
+        Log.i(TAG, "Action Binding Button clicked..!!");
+        Toast.makeText(MainActivity.this, "Action Binding Button clicked..!!", Toast.LENGTH_SHORT).show();
+
+        // Enable/Disable bar view
+        enableBarView(!barView.isEnabled());
     }
 
     /**
@@ -208,4 +231,35 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, NonBindingActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Attempts to enable/disable bar view.
+     */
+    private void enableBarView(boolean enable) {
+        if (enable) {
+            ButterKnife.apply(barView, ENABLED);
+        } else {
+            ButterKnife.apply(barView, DISABLE);
+        }
+    }
+
+    /**
+     * Action to disable view
+     */
+    static final ButterKnife.Action<View> DISABLE = new ButterKnife.Action<View>() {
+        @Override
+        public void apply(@NonNull View view, int index) {
+            view.setEnabled(false);
+        }
+    };
+
+    /**
+     * Action to enable view
+     */
+    static final ButterKnife.Action<View> ENABLED = new ButterKnife.Action<View>() {
+        @Override
+        public void apply(@NonNull View view, int index) {
+            view.setEnabled(true);
+        }
+    };
 }

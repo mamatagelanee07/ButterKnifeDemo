@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     // Add below dependency to use ButterKnife
     compile 'com.jakewharton:butterknife:8.0.1'
+
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.android.support:recyclerview-v7:23.4.0'
 }
