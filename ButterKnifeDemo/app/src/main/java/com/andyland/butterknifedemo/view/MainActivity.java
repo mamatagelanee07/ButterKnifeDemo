@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         // Added Crashnalytic to track crashes in demo
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
