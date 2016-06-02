@@ -17,6 +17,10 @@
         </activity>
         <activity android:name=".view.NonBindingActivity">
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="4c84cd39a872b95498a2c8b042fd6a21b3bb5466" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
