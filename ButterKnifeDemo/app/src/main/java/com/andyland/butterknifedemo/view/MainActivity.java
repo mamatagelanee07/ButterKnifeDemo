@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andyland.butterknifedemo.R;
+import com.crashlytics.android.Crashlytics;
 
 import butterknife.BindBool;
 import butterknife.BindColor;
@@ -23,6 +24,7 @@ import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Andy on 29-May-16.
@@ -95,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // Added Crashnalytic to track crashes in demo
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         initUI();
     }
